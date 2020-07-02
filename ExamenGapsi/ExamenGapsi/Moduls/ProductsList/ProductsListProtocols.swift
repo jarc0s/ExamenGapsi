@@ -14,6 +14,8 @@ protocol ProductsListViewProtocol: class {
     var presenter: ProductsListPresenterProtocol? { get set }
     func configTableView()
     func updateContentTable(products: [ProductsModel])
+    func updateFetchingState(state: Bool)
+    func activityViewState(isVisible: Bool)
 }
 
 protocol ProductsListWireFrameProtocol: class {
@@ -28,6 +30,7 @@ protocol ProductsListPresenterProtocol: class {
     var wireFrame: ProductsListWireFrameProtocol? { get set }
     
     func viewDidLoad()
+    func fecthMoreData()
 }
 
 protocol ProductsListInteractorOutputProtocol: class {
@@ -41,7 +44,8 @@ protocol ProductsListInteractorInputProtocol: class {
     var localDatamanager: ProductsListLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: ProductsListRemoteDataManagerInputProtocol? { get set }
     
-    func fetchProducts(product: String, page: Int) 
+    func fetchProducts(product: String, page: Int)
+    func fetchMoreData()
 }
 
 protocol ProductsListDataManagerInputProtocol: class {

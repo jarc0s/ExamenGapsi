@@ -10,13 +10,24 @@ import Foundation
 
 class ProductsListInteractor: ProductsListInteractorInputProtocol {
 
+    var productName: String = ""
+    var currentPage: Int = 0
+    var productsStock: [ProductsModel] = []
+    
     // MARK: Properties
     weak var presenter: ProductsListInteractorOutputProtocol?
     var localDatamanager: ProductsListLocalDataManagerInputProtocol?
     var remoteDatamanager: ProductsListRemoteDataManagerInputProtocol?
     
     func fetchProducts(product: String, page: Int) {
+        self.productName = product
+        self.currentPage = page
+        self.productsStock = []
         self.remoteDatamanager?.fetchProducts(product: product, page: page)
+    }
+    
+    func fetchMoreData(){
+        self.remoteDatamanager?.fetchProducts(product: productName, page: (currentPage+1))
     }
 
 }
@@ -24,6 +35,7 @@ class ProductsListInteractor: ProductsListInteractorInputProtocol {
 extension ProductsListInteractor: ProductsListRemoteDataManagerOutputProtocol {
     // TODO: Implement use case methods
     func productsResponse(products: [ProductsModel]) {
-        presenter?.productsResponse(products: products)
+        self.productsStock.append(contentsOf: products)
+        presenter?.productsResponse(products: self.productsStock)
     }
 }

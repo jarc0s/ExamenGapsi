@@ -13,6 +13,7 @@ import Combine
 class ProductsListView: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityView: UIView!
     
     // MARK: Properties
     var presenter: ProductsListPresenterProtocol?
@@ -23,6 +24,7 @@ class ProductsListView: UIViewController {
             }
         }
     }
+    var isFetching: Bool = false
     // MARK: Lifecycle
 
     override func viewDidLoad() {
@@ -43,6 +45,22 @@ extension ProductsListView: ProductsListViewProtocol {
     func updateContentTable(products: [ProductsModel]) {
         self.products = products
     }
+    
+    func updateFetchingState(state: Bool) {
+        self.isFetching = state
+    }
+    
+    
+    func activityViewState(isVisible: Bool) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.activityView.alpha = isVisible ? 1 : 0
+        }) { (success) in
+            if success {
+                self.activityView.isHidden = !isVisible
+            }
+        }
+    }
+    
 }
 
 
@@ -55,7 +73,6 @@ extension ProductsListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductTableViewCell
         let contentModel = products[indexPath.row]
-        //cell.setContents(title: <#T##String#>, price: <#T##String#>, image: <#T##UIImage#>)
         cell.titleLbl.text = contentModel.productDisplayName
         cell.priceLbl.text = "\(contentModel.promoPrice)"
         if let urlImage = URL(string: contentModel.smImage) {
@@ -66,4 +83,20 @@ extension ProductsListView: UITableViewDataSource {
     }
     
     
+}
+
+extension ProductsListView: UIScrollViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+    let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+
+        if offsetY > contentHeight - scrollView.frame.size.height {
+            if !isFetching {
+                print("get new data")
+                presenter?.fecthMoreData()
+            }
+        }
+
+    }
 }

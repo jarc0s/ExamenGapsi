@@ -21,7 +21,14 @@ extension ProductsListPresenter: ProductsListPresenterProtocol {
     // TODO: implement presenter methods
     func viewDidLoad() {
         self.view?.configTableView()
+        self.view?.activityViewState(isVisible: false)
         self.interactor?.fetchProducts(product: "Chamarra", page: 1)
+    }
+    
+    func fecthMoreData() {
+        self.view?.activityViewState(isVisible: true)
+        view?.updateFetchingState(state: true)
+        self.interactor?.fetchMoreData()
     }
 }
 
@@ -29,6 +36,8 @@ extension ProductsListPresenter: ProductsListInteractorOutputProtocol {
     // TODO: implement interactor output methods
     func productsResponse(products: [ProductsModel]) {
         print("number of products: \(products.count)")
+        self.view?.updateFetchingState(state: false)
+        self.view?.activityViewState(isVisible: false)
         self.view?.updateContentTable(products: products)
     }
 }

@@ -78,18 +78,38 @@
                                     <outlet property="delegate" destination="YKY-RZ-kfG" id="cYW-PP-2v7"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HtL-0Q-cJc">
+                                <rect key="frame" x="107" y="802" width="200" height="50"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="GVf-oR-HGi">
+                                        <rect key="frame" x="81.5" y="6.5" width="37" height="37"/>
+                                        <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.80003851232394363" alpha="0.77959947183098588" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="GVf-oR-HGi" firstAttribute="centerY" secondItem="HtL-0Q-cJc" secondAttribute="centerY" id="QNW-Tp-iP0"/>
+                                    <constraint firstItem="GVf-oR-HGi" firstAttribute="centerX" secondItem="HtL-0Q-cJc" secondAttribute="centerX" id="QwT-IE-r6X"/>
+                                    <constraint firstAttribute="width" constant="200" id="m6y-Td-TNH"/>
+                                    <constraint firstAttribute="height" constant="50" id="pdF-kb-hrQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="qH3-7E-lxV" firstAttribute="leading" secondItem="aLD-1d-06S" secondAttribute="leading" id="46K-R1-lxp"/>
                             <constraint firstItem="qH3-7E-lxV" firstAttribute="top" secondItem="zEz-vn-GES" secondAttribute="bottom" id="EpO-4E-2le"/>
                             <constraint firstItem="aLD-1d-06S" firstAttribute="trailing" secondItem="qH3-7E-lxV" secondAttribute="trailing" id="JVa-1T-dez"/>
+                            <constraint firstItem="aLD-1d-06S" firstAttribute="bottom" secondItem="HtL-0Q-cJc" secondAttribute="bottom" constant="10" id="Kom-mE-a4K"/>
                             <constraint firstItem="zEz-vn-GES" firstAttribute="top" secondItem="aLD-1d-06S" secondAttribute="top" constant="28" id="MWR-yA-hST"/>
+                            <constraint firstItem="HtL-0Q-cJc" firstAttribute="centerX" secondItem="15V-8g-gYN" secondAttribute="centerX" id="bQj-5G-zwZ"/>
                             <constraint firstItem="aLD-1d-06S" firstAttribute="bottom" secondItem="qH3-7E-lxV" secondAttribute="bottom" id="pcI-Uw-MWq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aLD-1d-06S"/>
                     </view>
                     <connections>
+                        <outlet property="activityView" destination="HtL-0Q-cJc" id="s16-XR-4hY"/>
                         <outlet property="tableView" destination="qH3-7E-lxV" id="cdr-od-1gp"/>
                     </connections>
                 </viewController>
