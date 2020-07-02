@@ -20,6 +20,7 @@ class ProductsListPresenter  {
 extension ProductsListPresenter: ProductsListPresenterProtocol {
     // TODO: implement presenter methods
     func viewDidLoad() {
+        self.view?.configTableView()
         self.interactor?.fetchProducts(product: "Chamarra", page: 1)
     }
 }
@@ -28,5 +29,6 @@ extension ProductsListPresenter: ProductsListInteractorOutputProtocol {
     // TODO: implement interactor output methods
     func productsResponse(products: [ProductsModel]) {
         print("number of products: \(products.count)")
+        self.view?.updateContentTable(products: products)
     }
 }

@@ -12,6 +12,8 @@ import UIKit
 protocol ProductsListViewProtocol: class {
     // PRESENTER -> VIEW
     var presenter: ProductsListPresenterProtocol? { get set }
+    func configTableView()
+    func updateContentTable(products: [ProductsModel])
 }
 
 protocol ProductsListWireFrameProtocol: class {
