@@ -30,6 +30,7 @@ protocol ProductsListPresenterProtocol: class {
 
 protocol ProductsListInteractorOutputProtocol: class {
 // INTERACTOR -> PRESENTER
+    func productsResponse(products: [ProductsModel])
 }
 
 protocol ProductsListInteractorInputProtocol: class {
@@ -37,6 +38,8 @@ protocol ProductsListInteractorInputProtocol: class {
     var presenter: ProductsListInteractorOutputProtocol? { get set }
     var localDatamanager: ProductsListLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: ProductsListRemoteDataManagerInputProtocol? { get set }
+    
+    func fetchProducts(product: String, page: Int) 
 }
 
 protocol ProductsListDataManagerInputProtocol: class {
@@ -46,10 +49,13 @@ protocol ProductsListDataManagerInputProtocol: class {
 protocol ProductsListRemoteDataManagerInputProtocol: class {
     // INTERACTOR -> REMOTEDATAMANAGER
     var remoteRequestHandler: ProductsListRemoteDataManagerOutputProtocol? { get set }
+    
+    func fetchProducts(product: String, page: Int)
 }
 
 protocol ProductsListRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> INTERACTOR
+    func productsResponse(products: [ProductsModel])
 }
 
 protocol ProductsListLocalDataManagerInputProtocol: class {

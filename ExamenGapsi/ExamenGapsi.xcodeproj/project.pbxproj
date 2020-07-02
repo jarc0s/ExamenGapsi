@@ -20,6 +20,9 @@
 		883B809B24AE77E000F71DFB /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B809424AE77E000F71DFB /* ProductsListView.swift */; };
 		883B809C24AE77E000F71DFB /* ProductsListWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B809524AE77E000F71DFB /* ProductsListWireFrame.swift */; };
 		883B809F24AE780300F71DFB /* ProductsListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883B809E24AE780300F71DFB /* ProductsListView.storyboard */; };
+		883B80A324AE7CED00F71DFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B80A224AE7CED00F71DFB /* Constants.swift */; };
+		883B80A624AE7D9900F71DFB /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B80A524AE7D9900F71DFB /* WebService.swift */; };
+		883B80A924AE7DE000F71DFB /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B80A824AE7DE000F71DFB /* ProductsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		883B809424AE77E000F71DFB /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
 		883B809524AE77E000F71DFB /* ProductsListWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListWireFrame.swift; sourceTree = "<group>"; };
 		883B809E24AE780300F71DFB /* ProductsListView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsListView.storyboard; sourceTree = "<group>"; };
+		883B80A224AE7CED00F71DFB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		883B80A524AE7D9900F71DFB /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		883B80A824AE7DE000F71DFB /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,8 @@
 		883B807624AE772000F71DFB /* ExamenGapsi */ = {
 			isa = PBXGroup;
 			children = (
+				883B80A724AE7DBF00F71DFB /* Model */,
+				883B80A024AE7CD000F71DFB /* Utils */,
 				883B808E24AE777E00F71DFB /* Moduls */,
 				883B807724AE772000F71DFB /* AppDelegate.swift */,
 				883B807924AE772000F71DFB /* SceneDelegate.swift */,
@@ -102,6 +110,39 @@
 				883B809E24AE780300F71DFB /* ProductsListView.storyboard */,
 			);
 			path = ProductsList;
+			sourceTree = "<group>";
+		};
+		883B80A024AE7CD000F71DFB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				883B80A424AE7D8A00F71DFB /* WebService */,
+				883B80A124AE7CDA00F71DFB /* Constants */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		883B80A124AE7CDA00F71DFB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				883B80A224AE7CED00F71DFB /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		883B80A424AE7D8A00F71DFB /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				883B80A524AE7D9900F71DFB /* WebService.swift */,
+			);
+			path = WebService;
+			sourceTree = "<group>";
+		};
+		883B80A724AE7DBF00F71DFB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				883B80A824AE7DE000F71DFB /* ProductsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,14 +217,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				883B809824AE77E000F71DFB /* ProductsListPresenter.swift in Sources */,
+				883B80A324AE7CED00F71DFB /* Constants.swift in Sources */,
 				883B809924AE77E000F71DFB /* ProductsListProtocols.swift in Sources */,
 				883B809B24AE77E000F71DFB /* ProductsListView.swift in Sources */,
 				883B807824AE772000F71DFB /* AppDelegate.swift in Sources */,
 				883B809724AE77E000F71DFB /* ProductsListLocalDataManager.swift in Sources */,
+				883B80A624AE7D9900F71DFB /* WebService.swift in Sources */,
 				883B808224AE772000F71DFB /* ExamenGapsi.xcdatamodeld in Sources */,
 				883B809C24AE77E000F71DFB /* ProductsListWireFrame.swift in Sources */,
 				883B809624AE77E000F71DFB /* ProductsListInteractor.swift in Sources */,
 				883B807A24AE772000F71DFB /* SceneDelegate.swift in Sources */,
+				883B80A924AE7DE000F71DFB /* ProductsModel.swift in Sources */,
 				883B809A24AE77E000F71DFB /* ProductsListRemoteDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

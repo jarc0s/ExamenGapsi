@@ -14,9 +14,16 @@ class ProductsListInteractor: ProductsListInteractorInputProtocol {
     weak var presenter: ProductsListInteractorOutputProtocol?
     var localDatamanager: ProductsListLocalDataManagerInputProtocol?
     var remoteDatamanager: ProductsListRemoteDataManagerInputProtocol?
+    
+    func fetchProducts(product: String, page: Int) {
+        self.remoteDatamanager?.fetchProducts(product: product, page: page)
+    }
 
 }
 
 extension ProductsListInteractor: ProductsListRemoteDataManagerOutputProtocol {
     // TODO: Implement use case methods
+    func productsResponse(products: [ProductsModel]) {
+        presenter?.productsResponse(products: products)
+    }
 }

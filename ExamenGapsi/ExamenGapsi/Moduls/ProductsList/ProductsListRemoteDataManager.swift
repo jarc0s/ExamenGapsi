@@ -7,9 +7,20 @@
 //
 
 import Foundation
+import Combine
 
 class ProductsListRemoteDataManager:ProductsListRemoteDataManagerInputProtocol {
+
+    private let webService = WebService()
+    private var cancellable: AnyCancellable?
     
     var remoteRequestHandler: ProductsListRemoteDataManagerOutputProtocol?
+    
+    func fetchProducts(product: String, page: Int) {
+        self.cancellable = webService.fectProducts(product: product, page: page).sink(receiveCompletion: { _ in }, receiveValue: { products in
+            //print(products.last?.productDisplayName ?? "")
+            self.remoteRequestHandler?.productsResponse(products: products)
+        })
+    }
     
 }
