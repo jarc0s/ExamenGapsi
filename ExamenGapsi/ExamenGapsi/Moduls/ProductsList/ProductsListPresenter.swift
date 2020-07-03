@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ProductsListPresenter  {
     
@@ -18,11 +19,12 @@ class ProductsListPresenter  {
 }
 
 extension ProductsListPresenter: ProductsListPresenterProtocol {
+    
+    
     // TODO: implement presenter methods
     func viewDidLoad() {
         self.view?.configTableView()
         self.view?.activityViewState(isVisible: false)
-        self.interactor?.fetchProducts(product: "Chamarra", page: 1)
     }
     
     func fecthMoreData() {
@@ -30,6 +32,14 @@ extension ProductsListPresenter: ProductsListPresenterProtocol {
         view?.updateFetchingState(state: true)
         self.interactor?.fetchMoreData()
     }
+    
+    func createSearchListView() -> UIViewController {
+        if let viewController = wireFrame?.presentSearchList(presenter: self) {
+            return viewController
+        }
+        return UIViewController()
+    }
+    
 }
 
 extension ProductsListPresenter: ProductsListInteractorOutputProtocol {
@@ -39,5 +49,14 @@ extension ProductsListPresenter: ProductsListInteractorOutputProtocol {
         self.view?.updateFetchingState(state: false)
         self.view?.activityViewState(isVisible: false)
         self.view?.updateContentTable(products: products)
+    }
+}
+
+
+extension ProductsListPresenter: SearchListToParentViewProtocol {
+    func performSearchForProduct(product: String) {
+        print("search: \(product)")
+        self.view?.updateSearchParameter(productName: product)
+        self.interactor?.fetchProducts(product: product, page: 1)
     }
 }

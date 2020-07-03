@@ -16,11 +16,13 @@ protocol ProductsListViewProtocol: class {
     func updateContentTable(products: [ProductsModel])
     func updateFetchingState(state: Bool)
     func activityViewState(isVisible: Bool)
+    func updateSearchParameter(productName: String)
 }
 
 protocol ProductsListWireFrameProtocol: class {
     // PRESENTER -> WIREFRAME
     static func createProductsListModule() -> UIViewController
+    func presentSearchList(presenter: ProductsListPresenter) -> UIViewController
 }
 
 protocol ProductsListPresenterProtocol: class {
@@ -31,6 +33,7 @@ protocol ProductsListPresenterProtocol: class {
     
     func viewDidLoad()
     func fecthMoreData()
+    func createSearchListView() -> UIViewController
 }
 
 protocol ProductsListInteractorOutputProtocol: class {

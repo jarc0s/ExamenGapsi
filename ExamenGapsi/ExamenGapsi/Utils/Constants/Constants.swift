@@ -12,7 +12,7 @@ struct Constants {
     
     struct URLs {
         static func product(product: String, page: Int) -> String {
-            "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(product)&page-number=\(page)&number-of-items-per-page=25"
+            "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(product)&page-number=\(page)&number-of-items-per-page=25".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         }
     }
 }

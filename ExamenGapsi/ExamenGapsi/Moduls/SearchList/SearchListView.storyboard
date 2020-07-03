@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search List View-->
+        <scene sceneID="hcg-XG-fb3">
+            <objects>
+                <viewController storyboardIdentifier="SearchListView" id="arb-Sz-P6H" customClass="SearchListView" customModule="ExamenGapsi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oH8-Ws-HUz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLn-Yo-OMK">
+                                <rect key="frame" x="10" y="54" width="394" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fc-O5-g9d">
+                                        <rect key="frame" x="10" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="9LS-fp-jhA"/>
+                                            <constraint firstAttribute="width" constant="40" id="QEB-l3-8dC"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="chevron.left" catalog="system"/>
+                                        <connections>
+                                            <action selector="closeModal:" destination="arb-Sz-P6H" eventType="touchUpInside" id="yOp-rQ-GBP"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar en Liverpool..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VUo-xv-PAc">
+                                        <rect key="frame" x="60" y="3" width="324" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="arb-Sz-P6H" id="w6d-m3-T2o"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="28c-Xt-ast"/>
+                                    <constraint firstItem="8fc-O5-g9d" firstAttribute="centerY" secondItem="hLn-Yo-OMK" secondAttribute="centerY" id="FAO-pa-dI2"/>
+                                    <constraint firstAttribute="trailing" secondItem="VUo-xv-PAc" secondAttribute="trailing" constant="10" id="QoO-9w-Jn0"/>
+                                    <constraint firstItem="VUo-xv-PAc" firstAttribute="leading" secondItem="8fc-O5-g9d" secondAttribute="trailing" constant="10" id="Vt5-8w-Lid"/>
+                                    <constraint firstItem="8fc-O5-g9d" firstAttribute="leading" secondItem="hLn-Yo-OMK" secondAttribute="leading" constant="10" id="dC0-Zk-ubr"/>
+                                    <constraint firstItem="VUo-xv-PAc" firstAttribute="centerY" secondItem="hLn-Yo-OMK" secondAttribute="centerY" id="tUC-Ss-jrv"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sh4-Tf-aaf">
+                                <rect key="frame" x="10" y="104" width="394" height="748"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Sh4-Tf-aaf" firstAttribute="top" secondItem="hLn-Yo-OMK" secondAttribute="bottom" constant="10" id="Alf-jk-ynj"/>
+                            <constraint firstItem="hLn-Yo-OMK" firstAttribute="top" secondItem="lC9-mg-yie" secondAttribute="top" constant="10" id="J61-ZH-6UE"/>
+                            <constraint firstItem="lC9-mg-yie" firstAttribute="trailing" secondItem="hLn-Yo-OMK" secondAttribute="trailing" constant="10" id="aUr-rH-YKF"/>
+                            <constraint firstItem="hLn-Yo-OMK" firstAttribute="leading" secondItem="lC9-mg-yie" secondAttribute="leading" constant="10" id="bbl-nM-RbX"/>
+                            <constraint firstItem="lC9-mg-yie" firstAttribute="trailing" secondItem="Sh4-Tf-aaf" secondAttribute="trailing" constant="10" id="jOR-Ji-XN6"/>
+                            <constraint firstItem="Sh4-Tf-aaf" firstAttribute="leading" secondItem="lC9-mg-yie" secondAttribute="leading" constant="10" id="mA7-cA-OtS"/>
+                            <constraint firstItem="lC9-mg-yie" firstAttribute="bottom" secondItem="Sh4-Tf-aaf" secondAttribute="bottom" constant="10" id="sCq-Y3-P9H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lC9-mg-yie"/>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="VUo-xv-PAc" id="lij-OD-GGv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XSf-6H-yNJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="258.48214285714283"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+    </resources>
+</document>

@@ -14,6 +14,7 @@ class ProductsListView: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityView: UIView!
+    @IBOutlet weak var parameterLbl: UILabel!
     
     // MARK: Properties
     var presenter: ProductsListPresenterProtocol?
@@ -30,6 +31,11 @@ class ProductsListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+    }
+    @IBAction func actionSearchProduct(_ sender: Any) {
+        guard let searchView = presenter?.createSearchListView() else { return }
+        searchView.modalPresentationStyle = .overCurrentContext
+        present(searchView, animated: true, completion: nil)
     }
 }
 
@@ -59,6 +65,11 @@ extension ProductsListView: ProductsListViewProtocol {
                 self.activityView.isHidden = !isVisible
             }
         }
+    }
+    
+    
+    func updateSearchParameter(productName: String) {
+        self.parameterLbl.text = productName
     }
     
 }
