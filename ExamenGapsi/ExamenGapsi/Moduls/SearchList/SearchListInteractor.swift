@@ -9,11 +9,22 @@
 import Foundation
 
 class SearchListInteractor: SearchListInteractorInputProtocol {
+    
+    
 
     // MARK: Properties
     weak var presenter: SearchListInteractorOutputProtocol?
     var localDatamanager: SearchListLocalDataManagerInputProtocol?
     var remoteDatamanager: SearchListRemoteDataManagerInputProtocol?
+    
+    func storeProductNameOnLocal(productName: String) {
+        localDatamanager?.storeParameter(productName: productName)
+    }
+    
+    func fetchProductNamesFromLocal() {
+        let parameters = localDatamanager?.fetchParameters()
+        presenter?.currentParameters(parameters: parameters ?? [])
+    }
 
 }
 

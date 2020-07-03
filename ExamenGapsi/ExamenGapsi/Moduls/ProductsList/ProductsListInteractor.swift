@@ -27,7 +27,11 @@ class ProductsListInteractor: ProductsListInteractorInputProtocol {
     }
     
     func fetchMoreData(){
-        self.remoteDatamanager?.fetchProducts(product: productName, page: (currentPage+1))
+        if !productName.isEmpty {
+            self.remoteDatamanager?.fetchProducts(product: productName, page: (currentPage+1))
+        }else {
+            presenter?.productsResponse(products: [ProductsModel]())
+        }
     }
 
 }

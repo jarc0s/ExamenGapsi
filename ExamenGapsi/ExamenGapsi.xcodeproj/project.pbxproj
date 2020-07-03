@@ -34,6 +34,7 @@
 		883B80BE24AEA78C00F71DFB /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B80B724AEA78C00F71DFB /* SearchListView.swift */; };
 		883B80BF24AEA78C00F71DFB /* SearchListWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B80B824AEA78C00F71DFB /* SearchListWireFrame.swift */; };
 		883B80C124AEA7C000F71DFB /* SearchListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883B80C024AEA7C000F71DFB /* SearchListView.storyboard */; };
+		883B80C324AEBB8300F71DFB /* SearchProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883B80C224AEBB8300F71DFB /* SearchProductTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		883B80B724AEA78C00F71DFB /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		883B80B824AEA78C00F71DFB /* SearchListWireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListWireFrame.swift; sourceTree = "<group>"; };
 		883B80C024AEA7C000F71DFB /* SearchListView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchListView.storyboard; sourceTree = "<group>"; };
+		883B80C224AEBB8300F71DFB /* SearchProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				883B80B724AEA78C00F71DFB /* SearchListView.swift */,
 				883B80B824AEA78C00F71DFB /* SearchListWireFrame.swift */,
 				883B80C024AEA7C000F71DFB /* SearchListView.storyboard */,
+				883B80C224AEBB8300F71DFB /* SearchProductTableViewCell.swift */,
 			);
 			path = SearchList;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				883B80BE24AEA78C00F71DFB /* SearchListView.swift in Sources */,
 				883B807824AE772000F71DFB /* AppDelegate.swift in Sources */,
 				883B809724AE77E000F71DFB /* ProductsListLocalDataManager.swift in Sources */,
+				883B80C324AEBB8300F71DFB /* SearchProductTableViewCell.swift in Sources */,
 				883B80BC24AEA78C00F71DFB /* SearchListProtocols.swift in Sources */,
 				883B80A624AE7D9900F71DFB /* WebService.swift in Sources */,
 				883B808224AE772000F71DFB /* ExamenGapsi.xcdatamodeld in Sources */,

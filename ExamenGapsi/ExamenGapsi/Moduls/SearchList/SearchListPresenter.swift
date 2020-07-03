@@ -20,10 +20,11 @@ class SearchListPresenter  {
 extension SearchListPresenter: SearchListPresenterProtocol {
     // TODO: implement presenter methods
     func viewDidLoad() {
-        
+        interactor?.fetchProductNamesFromLocal()
     }
     
     func searchProducts(productName: String) {
+        interactor?.storeProductNameOnLocal(productName: productName)
         parentProtocol?.performSearchForProduct(product: productName)
         self.view?.dismissView()
     }
@@ -33,4 +34,7 @@ extension SearchListPresenter: SearchListPresenterProtocol {
 
 extension SearchListPresenter: SearchListInteractorOutputProtocol {
     // TODO: implement interactor output methods
+    func currentParameters(parameters: [String]) {
+        view?.updateContentTable(products: parameters)
+    }
 }

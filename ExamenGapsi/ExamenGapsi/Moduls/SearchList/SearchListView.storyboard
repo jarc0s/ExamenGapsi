@@ -52,6 +52,37 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sh4-Tf-aaf">
                                 <rect key="frame" x="10" y="104" width="394" height="748"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchProductCell" id="uJM-Ns-C1d" customClass="SearchProductTableViewCell" customModule="ExamenGapsi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uJM-Ns-C1d" id="V15-sH-t7N">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRr-EF-ppK">
+                                                    <rect key="frame" x="30" y="11" width="344" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zRr-EF-ppK" firstAttribute="top" secondItem="V15-sH-t7N" secondAttribute="topMargin" id="6lj-mc-WD4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zRr-EF-ppK" secondAttribute="trailing" id="I16-eW-NqF"/>
+                                                <constraint firstItem="zRr-EF-ppK" firstAttribute="leading" secondItem="V15-sH-t7N" secondAttribute="leadingMargin" constant="10" id="JBV-Wt-aT1"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zRr-EF-ppK" secondAttribute="bottom" id="dDn-Kg-z69"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLbl" destination="zRr-EF-ppK" id="WK7-IO-CNu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="arb-Sz-P6H" id="F4t-fU-YFR"/>
+                                    <outlet property="delegate" destination="arb-Sz-P6H" id="fRW-Fe-bOc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -67,6 +98,7 @@
                         <viewLayoutGuide key="safeArea" id="lC9-mg-yie"/>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="Sh4-Tf-aaf" id="kAv-Qv-dCa"/>
                         <outlet property="textField" destination="VUo-xv-PAc" id="lij-OD-GGv"/>
                     </connections>
                 </viewController>

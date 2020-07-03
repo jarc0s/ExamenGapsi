@@ -85,7 +85,7 @@ extension ProductsListView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductTableViewCell
         let contentModel = products[indexPath.row]
         cell.titleLbl.text = contentModel.productDisplayName
-        cell.priceLbl.text = "\(contentModel.promoPrice)"
+        cell.priceLbl.text = "$\(contentModel.getPrice())"
         if let urlImage = URL(string: contentModel.smImage) {
             cell.configure(with: urlImage)
         }

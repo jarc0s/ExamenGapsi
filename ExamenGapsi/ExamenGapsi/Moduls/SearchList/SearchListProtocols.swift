@@ -13,6 +13,7 @@ protocol SearchListViewProtocol: class {
     // PRESENTER -> VIEW
     var presenter: SearchListPresenterProtocol? { get set }
     func dismissView()
+    func updateContentTable(products: [String])
 }
 
 protocol SearchListWireFrameProtocol: class {
@@ -33,6 +34,7 @@ protocol SearchListPresenterProtocol: class {
 
 protocol SearchListInteractorOutputProtocol: class {
 // INTERACTOR -> PRESENTER
+    func currentParameters(parameters: [String])
 }
 
 protocol SearchListInteractorInputProtocol: class {
@@ -40,6 +42,9 @@ protocol SearchListInteractorInputProtocol: class {
     var presenter: SearchListInteractorOutputProtocol? { get set }
     var localDatamanager: SearchListLocalDataManagerInputProtocol? { get set }
     var remoteDatamanager: SearchListRemoteDataManagerInputProtocol? { get set }
+    
+    func storeProductNameOnLocal(productName: String)
+    func fetchProductNamesFromLocal()
 }
 
 protocol SearchListDataManagerInputProtocol: class {
@@ -57,6 +62,8 @@ protocol SearchListRemoteDataManagerOutputProtocol: class {
 
 protocol SearchListLocalDataManagerInputProtocol: class {
     // INTERACTOR -> LOCALDATAMANAGER
+    func storeParameter(productName: String)
+    func fetchParameters() -> [String]
 }
 
 protocol SearchListToParentViewProtocol: class {

@@ -22,4 +22,8 @@ struct ProductsModel: Decodable {
     let listPrice: Double
     let promoPrice: Double
     let smImage: String
+    
+    func getPrice() -> Double {
+        promoPrice == 0.0 ? listPrice : promoPrice
+    }
 }
